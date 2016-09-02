@@ -19,31 +19,21 @@
 </template>
 
 <script>
-import Store from 'components/Store'
-import {navbar, dropdown} from 'vue-strap'
+import { navbar, dropdown } from 'vue-strap'
 
 var state = {
-  home: [],
-  dogs: []
+  home: [ ],
+  dogs: [ ]
 }
 
 export default {
   state,
   components: {
-    Store,
     navbar,
     dropdown
   },
   data () {
     return {
-      state: {
-        home: []
-      }
-    }
-  },
-  methods: {
-    getHome: function (event) {
-      Store.getHome()
     }
   }
 }

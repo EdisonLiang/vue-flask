@@ -19,7 +19,11 @@
 </template>
 
 <script>
+import { modal } from 'vue-strap'
 export default {
+  component: {
+    modal
+  },
   data () {
     return {
 

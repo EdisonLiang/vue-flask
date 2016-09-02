@@ -1,35 +1,24 @@
+# -*- coding: utf-8 -*-
 from flask import Flask, send_from_directory
+
+from db import db
+from model import Home
+from transaction import transaction_wrapper
+
 import json
+import os
+
 
 app = Flask(__name__)
-
-@app.route("/api/dogs")
-def get_dogs():
-    dogs = [
-        {
-            'name': 'Keyton'
-        },
-        {
-            'name': 'Troy'
-        },
-        {
-            'name': 'Winna'
-        },
-        {
-            'name': 'Star'
-        }
-    ]
-    return json.dumps(dogs)
-
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DB_URI']
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
 
 @app.route("/api/home")
+@transaction_wrapper
 def get_home():
-    articles = [
-        {'heading': 'hej', 'text': 'massa text', 'images': ['meh', 'muh']},
-        {'heading': 'hej2', 'text': 'mera text', 'images': ['buh']}
-    ]
-    return json.dumps(articles)
-
+    articles = Home.query.with_entities(Home.data).all()
+    return json.dumps([article.data for article in articles])
 
 @app.route("/")
 def index():
