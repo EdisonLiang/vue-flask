@@ -18,8 +18,7 @@ export default {
   },
   data () {
     return {
-      image: '',
-      showUpload: true
+      image: ''
     }
   },
   methods: {

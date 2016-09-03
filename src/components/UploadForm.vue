@@ -1,42 +1,38 @@
 <template>
-  <div id="uploadModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Modal title</h4>
-        </div>
-        <div class="modal-body">
-          <p>One fine body&hellip;</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+  <modal :show.sync="showModal" title="Choose file" :callback="submitDialog">
+    <div slot="modal-header" class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
     </div>
-  </div>
+    <div slot="modal-body" class="modal-body">Look at mah bodeeehh!!</div>
+  </modal>
 </template>
 
 <script>
 import { modal } from 'vue-strap'
 export default {
-  component: {
+  components: {
     modal
   },
   data () {
     return {
-
+      showModal: false
+    }
+  },
+  methods: {
+    submitDialog: function (event) {
+      console.log('dialog-complete')
+      this.showModal = false
     }
   },
   events: {
     'show-upload': function () {
+      this.showModal = true
       console.log('show-upload')
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 
 </style>
