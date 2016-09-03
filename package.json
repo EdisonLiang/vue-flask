@@ -1,7 +1,7 @@
 {
-  "name": "kungsliljan3",
+  "name": "vue-with-flask",
   "version": "1.0.0",
-  "description": "Kungsliljan chinese crested dog vue.js project",
+  "description": "Template for hobby vue.js projects",
   "author": "Jimmy Wahlberg <jimmy.wahlberg@gmail.com>",
   "private": true,
   "scripts": {

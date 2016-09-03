@@ -1,6 +1,6 @@
-# kungsliljan3
-
-> Kungsliljan chinese crested dog vue.js project
+# vue-flask
+Vue js site with a flask backend
+Template project for personal prototypes
 
 ## Build Setup
 
